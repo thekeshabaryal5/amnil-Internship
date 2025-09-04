@@ -1,5 +1,6 @@
 import Joi from "joi";
 
+// defining validation rule for blog
 const blogValidationRule = Joi.object()
   .keys({
     title: Joi.string().required().min(3).max(50).messages({
