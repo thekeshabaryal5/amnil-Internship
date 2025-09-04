@@ -1,3 +1,4 @@
+// middleware to validate the blog
 const validatePerson = (validationRule) => {
   return (req, res, next) => {
     let data = validationRule.validate(req.body);
