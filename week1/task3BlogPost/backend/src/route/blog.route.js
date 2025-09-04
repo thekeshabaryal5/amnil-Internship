@@ -6,9 +6,14 @@ import {
   readSpecificBlogController,
   updateBlogController,
 } from "../controller/blog.controller.js";
+import blogValidationRule from "../validation/blog.validation.js";
+import validatePerson from "../middleware/personValidation.middleware.js";
 
 let blogRouter = Router();
-blogRouter.route("/").post(createBlogController).get(readAllBlogController);
+blogRouter
+  .route("/")
+  .post(validatePerson(blogValidationRule), createBlogController)
+  .get(readAllBlogController);
 
 blogRouter
   .route("/:id")
